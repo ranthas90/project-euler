@@ -1,6 +1,7 @@
 package exercise0002;
 
-import _utils.Timer;
+import static _utils.Timer.*;
+import static _utils.ModuleOperations.isDivisible;
 
 public class EvenFibonacciNumbers {
 
@@ -11,23 +12,19 @@ public class EvenFibonacciNumbers {
         long secondTerm = 2;
         long nextTerm = 0;
 
-        Timer.startTimer();
+        startTimer();
 
         while (nextTerm <= 4000000) {
             nextTerm = firstTerm + secondTerm;
             firstTerm = secondTerm;
             secondTerm = nextTerm;
 
-            if (isEven(nextTerm)) {
+            if (isDivisible(nextTerm, 2)) {
                 sum = sum + nextTerm;
             }
         }
 
-        Timer.stopTimer();
-        System.out.println("Result: " + sum + " obtained in " + Timer.getTimeEllapsed() + " seconds");
-    }
-
-    private static boolean isEven(long value) {
-        return value % 2 == 0;
+        stopTimer();
+        System.out.println("Result: " + sum + " obtained in " + getTimeEllapsed() + " seconds");
     }
 }

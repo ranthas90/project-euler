@@ -1,6 +1,7 @@
 package exercise0001;
 
-import _utils.Timer;
+import static _utils.ModuleOperations.isDivisible;
+import static _utils.Timer.*;
 
 public class MultiplesOfThreeAndFive {
 
@@ -8,23 +9,15 @@ public class MultiplesOfThreeAndFive {
 
         int sum = 0;
 
-        Timer.startTimer();
+        startTimer();
 
         for (int i = 3; i < 1000; i++) {
-            if (isThreeMultiplier(i) || isFiveMultiplier(i)) {
+            if (isDivisible(i, 3) || isDivisible(i, 5)) {
                 sum = sum + i;
             }
         }
 
-        Timer.stopTimer();
-        System.out.println("Result: " + sum + " obtained in " + Timer.getTimeEllapsed() + " seconds.");
-    }
-
-    private static boolean isThreeMultiplier(int value) {
-        return value % 3 == 0;
-    }
-
-    private static boolean isFiveMultiplier(int value) {
-        return value % 5 == 0;
+        stopTimer();
+        System.out.println("Result: " + sum + " obtained in " + getTimeEllapsed() + " seconds.");
     }
 }
