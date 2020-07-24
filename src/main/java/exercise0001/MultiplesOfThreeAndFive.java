@@ -9,7 +9,7 @@ public class MultiplesOfThreeAndFive {
         int sum = 0;
 
         Timer.startTimer();
-        
+
         for (int i = 3; i < 1000; i++) {
             if (isThreeMultiplier(i) || isFiveMultiplier(i)) {
                 sum = sum + i;
